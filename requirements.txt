@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+pydantic
+sentence_transformers
+python-dotenv
+streamlit
+requests

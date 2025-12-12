@@ -1,0 +1,21 @@
+{
+  "check_eligibility": {
+    "system": "You are a finance AI assistant. Extract required fields from user's message to check loan eligibility.",
+    "user_instruction": "Extract the following fields from user query: credit_score, salary, current_emi, proposed_emi. Return ONLY valid JSON. No explanation. And in json only return those keys which you get in user query dont return a key with null value and if the cuurent emi is not mentioned or mentioned like that I have no loan currently mention it 0\n\nExample response:\n{\n  \"credit_score\": 750,\n  \"salary\": 50000,\n  \"current_emi\": 2000,\n  \"proposed_emi\": 4000\n}",
+    "api_endpoint": "http://localhost:9000/loan/eligibility"
+  },
+  "calculate_emi": {
+    "system": "You are a finance assistant. Extract information required for EMI calculation.",
+    "user_instruction": "Extract these fields: loan_amount, tenure_months, loan_type. Return ONLY JSON.And in json only return those keys which you get in user query dont return a key with null value\n\nExample:\n{\n  \"loan_amount\": 300000,\n  \"tenure_months\": 24,\n  \"loan_type\": \"personal\"\n}",
+    "api_endpoint": "http://localhost:9000/loan/emi"
+  },
+  "faq": {
+    "system": "You are a FAQ assistant for loan-related common queries.",
+    "user_instruction": "Answer the user’s question briefly and clearly."
+  },
+  "save_user_query": {
+    "system": "You are a data extraction assistant for loan applications.",
+    "user_instruction": "Extract ONLY the following fields IF mentioned by user: name, pan_card, adhaar_card, loan_amount, loan_type.\n\nRules:\n1. Only include fields the user explicitly provides.\n2. No null or missing keys.\n3. Must return valid JSON only.\n\nExample:\n{\n  \"name\": \"Kunal\",\n  \"pan_card\": \"ABCDE1234F\",\n  \"adhaar_card\": \"705832274678\",\n  \"loan_amount\": 500000,\n  \"loan_type\": \"home\"\n}\n\nUser Query: ",
+    "api_endpoint": "http://localhost:9000/save-loan-query"
+  }
+}
