@@ -15,23 +15,7 @@ router = APIRouter()
 @router.post("/save-loan-query")
 def save_loan_query(request: SaveLoanQueryRequest, db: Session = Depends(get_db)):
     
-    PAN_REGEX = r"^[A-Z]{5}[0-9]{4}[A-Z]$"
-    AADHAAR_REGEX = r"^[2-9]{1}[0-9]{11}$"
     
-    if not re.match(PAN_REGEX, request.pan_card.upper()):
-        raise HTTPException(
-            status_code=400,
-            detail="Invalid PAN Number."
-        )
-
-    # --------------------------
-    # Validate Aadhaar
-    # --------------------------
-    if not re.match(AADHAAR_REGEX, request.adhaar_card):
-        raise HTTPException(
-            status_code=400,
-            detail="Invalid Aadhaar Number."
-        )
 
 
     new_entry = LoanQuery(
